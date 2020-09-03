@@ -24,6 +24,8 @@ public class ExampleUnitTest {
 
     @Test
     public void checkWrongPassword() {
+        //When we test the password, we do not get it from the DB. We've already gotten it. Here we
+        //just make sure that the function is returning false when the passwords don't match.
         String wrongPass = "thisPasswordIsWrong";
         String rightPass = "thisPasswordIsRight";
 
@@ -32,6 +34,8 @@ public class ExampleUnitTest {
 
     @Test
     public void checkRightPassword() {
+        //When we test the password, we do not get it from the DB. We've already gotten it. Here we
+        //just make sure that the function is returning true when the passwords match.
         String origPass = "thisPasswordIsCorrect";
         String actualPass = origPass;
 
@@ -40,6 +44,7 @@ public class ExampleUnitTest {
 
     @Test
     public void checkIntentWorks() {
+        //If the intent is not null, then we know we've received an intent from the landing page.
         Intent  intent = exampleLanding.getIntent(exampleMain);
         assertNotNull(intent);
 
