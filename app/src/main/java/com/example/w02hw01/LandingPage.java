@@ -1,21 +1,21 @@
 package com.example.w02hw01;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.wearable.activity.WearableActivity;
-import android.widget.TextView;
 
-public class LandingPage extends WearableActivity {
-
-    private TextView mTextView;
+public class LandingPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+    }
 
-        mTextView = (TextView) findViewById(R.id.text);
-
-        // Enables Always-on
-        setAmbientEnabled();
+    public static Intent getIntent(Context context){
+        Intent intent = new Intent(context, LandingPage.class);
+        return intent;
     }
 }

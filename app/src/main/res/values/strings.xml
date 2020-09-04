@@ -7,10 +7,4 @@
     <string name="welcome">Welcome!</string>
     <string name="login_message">Enter your login credentials below:</string>
     <string name="button_label">Login!</string>
-    <string name="title_activity_landing_page">LandingPage</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
 </resources>

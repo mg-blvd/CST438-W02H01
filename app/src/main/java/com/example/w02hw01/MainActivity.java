@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String passedInUser = userText.getText().toString();
-                String passedInPass = userText.getText().toString();
+                String passedInPass = passText.getText().toString();
 
+                resetFieldColors();
                 checkValidLogin(passedInUser, passedInPass);
             }
         });
@@ -77,11 +79,12 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
+        goToLandingPage();
     }
 
     private String checkUsername(String username) {
         User user = mUserDAO.getUsersFromUsername(username);
+
         if(user == null) {
             return null;
         }
@@ -101,5 +104,16 @@ public class MainActivity extends AppCompatActivity {
     private void signalInvalidPassword() {
         passText.setBackgroundColor(ContextCompat.getColor(this, R.color.errorBackground));
         Toast.makeText(this, "The password was incorrect!", Toast.LENGTH_SHORT).show();
+    }
+
+    private void goToLandingPage() {
+        Intent intent = LandingPage.getIntent(MainActivity.this);
+        intent.putExtra("username", userText.getText().toString());
+        startActivity(intent);
+    }
+
+    private void resetFieldColors() {
+        userText.setBackgroundColor(ContextCompat.getColor(this, R.color.cleanBackground));
+        passText.setBackgroundColor(ContextCompat.getColor(this, R.color.cleanBackground));
     }
 }
