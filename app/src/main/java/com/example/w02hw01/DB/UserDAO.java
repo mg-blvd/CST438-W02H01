@@ -20,5 +20,9 @@ public interface UserDAO {
     void delete(User user);
 
     @Query("SELECT * FROM USER_TABLE WHERE username == :username")
-    List<User> getUsersFromUsername(String username);
+    User getUsersFromUsername(String username);
+
+    @Query("SELECT password FROM USER_TABLE WHERE username == :username")
+    String getPasswordFromUsername(String username);
+
 }
