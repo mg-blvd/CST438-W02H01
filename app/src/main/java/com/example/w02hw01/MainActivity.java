@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToLandingPage() {
         Intent intent = LandingPage.getIntent(MainActivity.this);
-        intent.putExtra("username", userText.getText().toString());
+        intent.putExtra(LandingPage.USERNAME_EXTRA, userText.getText().toString());
         startActivity(intent);
     }
 
