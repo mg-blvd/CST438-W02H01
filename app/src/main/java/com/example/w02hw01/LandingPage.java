@@ -17,11 +17,18 @@ public class LandingPage extends AppCompatActivity {
         setContentView(R.layout.activity_landing_page);
         welcomeText = findViewById(R.id.welcomeText);
 
+        //We get the intent because we want to get the value that was passed in from the login page.
+        //We do this to customize the welcome message.
         Intent incoming = getIntent();
         welcomeText.setText("Welcome\n@" + incoming.getStringExtra(USERNAME_EXTRA));
 
     }
 
+    /**
+     * Returns the intent to be able to move to this activity.
+     * @param context The context of the activity we are traveling from.
+     * @return Returns the created context.
+     */
     public static Intent getIntent(Context context){
         Intent intent = new Intent(context, LandingPage.class);
         return intent;
